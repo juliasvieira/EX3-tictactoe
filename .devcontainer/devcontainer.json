@@ -1,4 +1,4 @@
-{
+/*{
     "name": "C++ Dev Container",
     "image": "mcr.microsoft.com/devcontainers/cpp:latest",
     "features": {
@@ -16,9 +16,11 @@
         }
     },
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
-    "workspaceFolder": "/workspace",
+    "workspaceFolder": "/workspace/EX3-tictactoe",
     "runArgs": [
         "--cap-add=SYS_PTRACE",
         "--security-opt=seccomp=unconfined"
     ]
-}
+}*/
+
+
