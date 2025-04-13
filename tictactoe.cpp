@@ -5,8 +5,9 @@
 #include <condition_variable>
 #include <random>
 #include <chrono>
-#include <windows.h> // Para limpar a tela no Windows
+#include <windows.h> 
 
+// classe TicTacToe--------------------------------------------------------:
 class TicTacToe {
 private:
     std::vector<std::vector<char>> tabuleiro;
@@ -22,7 +23,7 @@ public:
 
     void exibir_tabuleiro() {
         std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-        system("cls"); // Limpa a tela (Windows)
+        system("cls"); // limpa a tela p impressao dinamica
 
         std::lock_guard<std::mutex> lock(board_mutex);
 
@@ -84,18 +85,19 @@ public:
     }
 
     bool checar_vitoria(char jogador) {
-        for (int i = 0; i < 3; ++i) {
+        for (int i = 0; i < 3; ++i) {                   //verifica se jogador completou linha na vertical
             if (tabuleiro[i][0] == jogador && tabuleiro[i][1] == jogador && tabuleiro[i][2] == jogador) {
                 return true;
             }
         }
 
-        for (int j = 0; j < 3; ++j) {
+        for (int j = 0; j < 3; ++j) {                  //verifica se jogador completou linha na horizontal
             if (tabuleiro[0][j] == jogador && tabuleiro[1][j] == jogador && tabuleiro[2][j] == jogador) {
                 return true;
             }
         }
 
+        //verifica se jogador completou linha nas diagonais
         if (tabuleiro[0][0] == jogador && tabuleiro[1][1] == jogador && tabuleiro[2][2] == jogador) {
             return true;
         }
@@ -121,6 +123,7 @@ public:
     char get_winner() const { return vencedor; }
 };
 
+// classe Player--------------------------------------------------------:
 class Player {
 private:
     char simbolo;
@@ -171,6 +174,7 @@ void player_thread_function(Player* jogador) {
     }
 }
 
+// main--------------------------------------------------------------------:
 int main() {
     TicTacToe jogo;
 
