@@ -15,7 +15,7 @@
             ]
         }
     },
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace/EX3-tictactoe,type=bind",
     "workspaceFolder": "/workspace/EX3-tictactoe",
     "runArgs": [
         "--cap-add=SYS_PTRACE",
